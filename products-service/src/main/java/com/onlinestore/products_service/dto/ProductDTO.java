@@ -16,6 +16,5 @@ public class ProductDTO {
 
     private Long code;
     private String name;
-    private String brand;
     private BigDecimal single_price;
 }

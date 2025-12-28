@@ -9,6 +9,8 @@ public interface IProductService {
 
     public String createProduct(Product product);
 
+    public String createAllProducts(List<Product> products);
+
     public String updateProduct(Product product);
 
     public String deleteProduct(Long id);
@@ -17,5 +19,6 @@ public interface IProductService {
 
     public List<ProductDTO> findAllProducts();
 
+    public List<ProductDTO> findProductsByCode(Long code);
 
 }

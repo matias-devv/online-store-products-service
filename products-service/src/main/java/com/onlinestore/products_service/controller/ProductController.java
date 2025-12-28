@@ -20,6 +20,11 @@ public class ProductController{
         return iProductService.createProduct(product);
     }
 
+    @PostMapping("/create-all")
+    public String createProducts(@RequestBody List<Product> products){
+        return iProductService.createAllProducts(products);
+    }
+
     @PutMapping("/update")
     public String updateProduct(@RequestBody Product product){
         return iProductService.updateProduct(product);
