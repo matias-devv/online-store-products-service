@@ -57,6 +57,7 @@ public class ProductService implements IProductService {
     public List<ProductDTO> findAllProducts() {
         List<Product> products = iProductRepository.findAll();
         List<ProductDTO> productsDTOs = new ArrayList<>();
+
         for (Product product : products) {
             //the DTO that the method returns -> add it to the DTOs list
             productsDTOs.add( convertProductToDTO(product));
@@ -66,12 +67,20 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<ProductDTO> findProductsByCode(Long code) {
-        List<Product> products = iProductRepository.findProductsByCode(code);
+    public List<ProductDTO> findProductsByCode(List<Long> codes) {
+        List<Product> products = iProductRepository.findAll();
         List<ProductDTO> productsDTOs = new ArrayList<>();
+
         for (Product product : products) {
-            //the DTO that the method returns -> add it to the DTOs list
-            productsDTOs.add( convertProductToDTO(product));
+
+            for(Long code : codes) {
+
+                if (product.getCode().equals(code)) {
+                    //convert the product to DTO
+                    //-> add it to the DTOs list
+                    productsDTOs.add( convertProductToDTO(product) );
+                }
+            }
         }
 
         return productsDTOs;

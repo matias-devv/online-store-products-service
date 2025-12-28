@@ -44,4 +44,9 @@ public class ProductController{
     public List<ProductDTO> findAllProducts(){
         return iProductService.findAllProducts();
     }
+
+    @GetMapping("/find")
+    public List<ProductDTO> findProductsByCode(@RequestBody List<Long> codes){
+        return iProductService.findProductsByCode(codes);
+    }
 }
