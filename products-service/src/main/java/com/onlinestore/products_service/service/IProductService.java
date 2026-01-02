@@ -19,6 +19,6 @@ public interface IProductService {
 
     public List<ProductDTO> findAllProducts();
 
-    public List<ProductDTO> findProductsByCode(List<Long> codes);
+    public List<ProductDTO> findProductsByCodes(List<Long> codes);
 
 }

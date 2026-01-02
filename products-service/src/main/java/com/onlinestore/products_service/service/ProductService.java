@@ -67,7 +67,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<ProductDTO> findProductsByCode(List<Long> codes) {
+    public List<ProductDTO> findProductsByCodes(List<Long> codes) {
         List<Product> products = iProductRepository.findAll();
         List<ProductDTO> productsDTOs = new ArrayList<>();
 

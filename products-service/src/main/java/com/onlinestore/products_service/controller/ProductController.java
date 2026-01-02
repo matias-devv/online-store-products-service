@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/product")
 public class ProductController{
 
     @Autowired
@@ -30,14 +30,14 @@ public class ProductController{
         return iProductService.updateProduct(product);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable Long id){
-        return iProductService.deleteProduct(id);
+    @DeleteMapping("/delete/{code}")
+    public String deleteProduct(@PathVariable Long code){
+        return iProductService.deleteProduct(code);
     }
 
-    @GetMapping("/find/{id}")
-    public ProductDTO findByProductId(Long id){
-        return iProductService.findByProductId(id);
+    @GetMapping("/find/{code}")
+    public ProductDTO findProductByCode(@PathVariable Long code){
+        return iProductService.findByProductId(code);
     }
 
     @GetMapping("/find-all")
@@ -46,7 +46,7 @@ public class ProductController{
     }
 
     @GetMapping("/find")
-    public List<ProductDTO> findProductsByCode(@RequestBody List<Long> codes){
-        return iProductService.findProductsByCode(codes);
+    public List<ProductDTO> findProductsByCodes(@RequestBody List<Long> codes){
+        return iProductService.findProductsByCodes(codes);
     }
 }
