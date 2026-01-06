@@ -4,10 +4,15 @@
 
 ## Overview
 **Products Service** is the authoritative product catalog microservice within the system.
+
  It owns the **Product domain** and is responsible for managing product data while exposing a clean, stable, and read-only interface for other business services.
+
 This service follows a **strict domain ownership model**:
- only this service can create, update, or delete products.
- All other services (Sales, Shopping Carts) **consume product data exclusively via API**, never through direct database access.
+
+- only this service can create, update, or delete products.
+  
+- All other services (Sales, Shopping Carts) **consume product data exclusively via API**, never through direct database access.
+
 The design intentionally prioritizes **clarity, separation of responsibilities, and long-term maintainability** over premature optimization.
 
 
